@@ -1,10 +1,12 @@
 import React from 'react'
+import BitArray from './BitArray'
 
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <p>Bloom</p>
+      <h1>Bloom Filter Visualizer</h1>
+      <BitArray size={10}></BitArray>
     </div>
   )
 }
