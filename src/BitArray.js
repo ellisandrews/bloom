@@ -10,11 +10,11 @@ class BitArray extends Component {
     return this.props.filterArray.map((bit, index) => {
       switch ( bit ) {
         case 'active':
-          return <Square active key={index}/>
+          return <Square active key={index} index={index}/>
         case 'set':
-          return <Square set key={index}/>
+          return <Square set key={index} index={index}/>
         default:
-          return <Square key={index}/> 
+          return <Square key={index} index={index}/> 
       }
     })
   }
