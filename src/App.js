@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Bloom Filter Visualizer</h1>
-      <BitArray size={10}></BitArray>
+      <BitArray/>
     </div>
   )
 }

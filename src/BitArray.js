@@ -1,25 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Square from './Square'
 import './BitArray.css'
 
 
 class BitArray extends Component {
   
-  constructor(props) {
-    super(props)
-
-    const array = []
-    for (var i = 0; i < props.size; i++) {
-      array.push(undefined)
-    }
-
-    this.state = {
-      array: array
-    }
-  }
-
   renderSquares = () => {
-    return this.state.array.map((bit, index) => {
+    return this.props.filterArray.map((bit, index) => {
       switch ( bit ) {
         case 'active':
           return <Square active key={index}/>
@@ -41,4 +29,11 @@ class BitArray extends Component {
 }
 
 
-export default BitArray
+const mapStateToProps = state => {
+  return {
+    filterArray: state.filterArray
+  }
+}
+
+
+export default connect(mapStateToProps)(BitArray)
