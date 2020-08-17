@@ -7,14 +7,16 @@ import './BitArray.css'
 class BitArray extends Component {
   
   renderSquares = () => {
-    return this.props.filterArray.map((bit, index) => {
-      switch ( bit ) {
-        case 'active':
-          return <Square active key={index} index={index}/>
-        case 'set':
-          return <Square set key={index} index={index}/>
-        default:
-          return <Square key={index} index={index}/> 
+    const { array, activeIndexes } = this.props
+    
+    // Return appropriate Square (activated, toggled, or blank)
+    return array.map((bit, index) => {  
+      if ( activeIndexes.includes(index) ) {
+        return <Square active key={index} index={index}/>
+      } else if ( bit ) {
+        return <Square set key={index} index={index}/>
+      } else {
+        return <Square key={index} index={index}/>
       }
     })
   }
@@ -31,7 +33,8 @@ class BitArray extends Component {
 
 const mapStateToProps = state => {
   return {
-    filterArray: state.filterArray
+    array: state.filter.array,
+    activeIndexes: state.filter.activeIndexes
   }
 }
 

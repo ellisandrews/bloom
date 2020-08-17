@@ -1,15 +1,16 @@
-import { ACTIVATE_BIT, SET_ACTIVE_BITS } from '../actionTypes'
+import { ACTIVATE_BITS, TOGGLE_BITS } from '../actionTypes'
 
 
-export const activateBit = index => {
+export const activateBits = indexes => {
   return {
-    type: ACTIVATE_BIT,
-    index: index
+    type: ACTIVATE_BITS,
+    indexes: indexes
   }
 }
 
-export const setActiveBits = () => {
+export const toggleBits = indexes => {
   return {
-    type: SET_ACTIVE_BITS
+    type: TOGGLE_BITS,
+    indexes: indexes
   }
 }

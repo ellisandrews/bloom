@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import filterArrayReducer from './filterArrayReducer'
+import filterReducer from './filterReducer'
 import itemSetReducer from './itemSetReducer'
 
 
 const rootReducer = combineReducers({
-  filterArray: filterArrayReducer,
+  filter: filterReducer,
   itemSet: itemSetReducer
 })
 
