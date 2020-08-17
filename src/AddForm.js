@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import murmur3 from 'murmurhash-js'
 import { addSetItem } from './actions/actionCreators/itemSet'
+import { activateBit, setActiveBits } from './actions/actionCreators/filterArray'
 
 
 class AddForm extends Component {
@@ -15,7 +17,29 @@ class AddForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.addSetItem(this.state.value)
+    
+    const { activateBit, addSetItem, setActiveBits } = this.props
+
+    // Grab the item to be added to the set
+    const item = this.state.value
+
+    // Add the item to the set
+    addSetItem(item)
+    
+    // Dispatch an action to toggle any currently 'active' bits to 'set'
+    setActiveBits()
+    
+    // Hash the item using the hashing algorithms
+    // NOTE: Modulo needs to be the length of the filterArray!
+    // Currently using the same hashing algorithm (murmur3) but with a different seed/salt. Is this legitimate?
+    const murmurValue1 = murmur3(item, 1) % 10
+    const murmurValue2 = murmur3(item, 2) % 10
+
+    // Dispatch actions to toggle the bits to 'active' from hashing output
+    activateBit(murmurValue1)
+    activateBit(murmurValue2)
+    
+    // Reset the local form state to the empty string
     this.setState({value: ''})
   }
 
@@ -35,5 +59,5 @@ class AddForm extends Component {
 
 export default connect(
   null,
-  { addSetItem }
+  { activateBit, addSetItem, setActiveBits }
 )(AddForm)

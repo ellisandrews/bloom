@@ -11,6 +11,7 @@ class SetItems extends Component {
   render() {
     return (
       <div id="set-items">
+        <h3>Items</h3>
         <ul>
           {this.renderSetItems()}
         </ul>
