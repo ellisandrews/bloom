@@ -1,9 +1,18 @@
 import { ACTIVATE_BITS, TOGGLE_BITS } from '../actions/actionTypes'
 
 
+const resetArray = size => {
+  const array = []
+  for ( let i = 0; i < size; i++ ) {
+    array.push(false)
+  }
+  return array
+}
+
+
 // TODO: Somehow set this dynamically to a specified number of bits?
 const initialState = {
-  array: [false, false, false, false, false, false, false, false, false, false],
+  array: resetArray(32),
   activeIndexes: []
 }
 

@@ -1,4 +1,13 @@
-.bit-array {
-    white-space: nowrap;
-    overflow-x: scroll;
+.bit-square {
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.toggled {
+    fill: blue;
+}
+
+.active {
+    fill: yellow;
 }

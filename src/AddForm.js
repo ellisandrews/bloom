@@ -30,8 +30,8 @@ class AddForm extends Component {
     // NOTE: Modulo needs to be the length of the filterArray!
     // Currently using the same hashing algorithm (murmur3) but with a different seed/salt. Is this legitimate?
     const bitIndexes = [
-      murmur3(item, 1) % 10,
-      murmur3(item, 2) % 10
+      murmur3(item, 1) % 32,
+      murmur3(item, 2) % 32
     ]
 
     // Toggle the bits to `true` from hashing output
