@@ -12,7 +12,7 @@ class BitArray extends Component {
     // Return appropriate Square (activated, toggled, or blank)
     return array.map((bit, index) => {  
       if ( activeIndexes.includes(index) ) {
-        return <Square active key={index} index={index}/>
+        return bit ? <Square active set key={index} index={index}/> : <Square active key={index} index={index}/>
       } else if ( bit ) {
         return <Square set key={index} index={index}/>
       } else {

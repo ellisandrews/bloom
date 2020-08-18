@@ -9,7 +9,9 @@ const Square = props => {
 
   if (props.active) {
     className += ' square-active'
-  } else if (props.set) {
+  }
+  
+  if (props.set) {
     className += ' square-set'
   }
 

@@ -7,7 +7,7 @@
 }
 
 .square-active {
-    background-color: green;
+    border-color: yellow;
 }
 
 .square-set {
