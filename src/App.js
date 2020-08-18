@@ -10,7 +10,7 @@ const App = () => {
     <div className="App">
       <h1>Bloom Filter Visualizer</h1>
       <AddForm/>
-      <BitArray item="Set Item"/>
+      <BitArray/>
       <CheckForm/>
       <SetItems/>
     </div>

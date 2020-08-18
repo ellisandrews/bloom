@@ -30,22 +30,29 @@ class BitArray extends Component {
     })
   }
 
-  renderArrows = () => {
-
-    const getXOffset = index => {
-      let offset
-      if ( index < 10 ) {
-        offset = 25
-      } else if ( index < 20 ) {
-        offset = 22
-      } else {
-        offset = 25
-      }
-      return offset
+  getArrowXOffset = index => {
+    let offset
+    if ( index <= 12 ) {
+      offset = 35
+    } else if ( index <= 16 ) {
+      offset = 30
+    } else if ( index < 21 ) {
+      offset = 25
+    } else {
+      offset = 22
     }
+    return offset
+  }
 
+  renderAddArrows = () => {
     return this.props.activeIndexes.map((index, key) => {  
-      return <line key={key} x1="340" y1="30" x2={index*20 + getXOffset(index)} y2="230" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)" />
+      return <line key={key} x1="340" y1="30" x2={index*20 + this.getArrowXOffset(index)} y2="225" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+    })
+  }
+
+  renderCheckArrows = () => {
+    return this.props.activeIndexes.map((index, key) => {  
+      return <line key={key} x1="340" y1="470" x2={index*20 + this.getArrowXOffset(index)} y2="275" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
     })
   }
 
@@ -60,9 +67,10 @@ class BitArray extends Component {
           </marker>
         </defs>
         {/* TODO: Set the below `x` value dynamically based on this.props.item.length */}
-        <text x="320" y="20">{this.props.item}</text>
-        {this.renderArrows()}
+        <text x="320" y="20">{this.props.addedItem}</text>
         {this.renderSquares()}
+        {this.props.addedItem ? this.renderAddArrows() : this.renderCheckArrows()}
+        <text x="320" y="480">{this.props.checkedItem}</text>
       </svg>
     )
   }
@@ -70,9 +78,14 @@ class BitArray extends Component {
 
 
 const mapStateToProps = state => {
+  
+  const { array, activeIndexes, addedItem, checkedItem } = state.filter
+  
   return {
-    array: state.filter.array,
-    activeIndexes: state.filter.activeIndexes
+    array,
+    activeIndexes,
+    addedItem,
+    checkedItem
   }
 }
 

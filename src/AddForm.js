@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import murmur3 from 'murmurhash-js'
-import { addSetItem } from './actions/actionCreators/itemSet'
 import { activateBits, toggleBits } from './actions/actionCreators/filterArray'
+import { addSetItem } from './actions/actionCreators/itemSet'
 
 
 class AddForm extends Component {

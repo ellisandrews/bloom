@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import murmur3 from 'murmurhash-js'
 import { activateBits } from './actions/actionCreators/filterArray'
+import { checkSetItem } from './actions/actionCreators/itemSet'
 
 
 class CheckForm extends Component {
@@ -17,10 +18,13 @@ class CheckForm extends Component {
   handleSubmit = event => {
     event.preventDefault()
     
-    const { activateBits, array } = this.props
+    const { activateBits, array, checkSetItem } = this.props
 
     // Grab the item to be added to the set
     const item = this.state.value
+
+    // Set the checkedItem in state, and remove an addedItem if applicable
+    checkSetItem(item)
 
     // Hash the item using the hashing algorithms
     // NOTE: Modulo needs to be the length of the filterArray!
@@ -74,5 +78,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { activateBits }
+  { activateBits, checkSetItem }
 )(CheckForm)
