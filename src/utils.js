@@ -17,3 +17,6 @@ export const createItem = (value, numHashFunctions = 2, arrayLength = 32) => {
     bitIndexes
   }
 }
+
+
+export const stringifyIndexes = bitIndexes => bitIndexes.join(', ')

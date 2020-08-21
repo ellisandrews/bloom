@@ -1,10 +1,7 @@
 import { ADD_SET_ITEM, CHECK_SET_ITEM } from '../actions/actionTypes'
 
 
-const initialState = {
-  value: '',
-  bitIndexes: []
-}
+const initialState = null
 
 
 const checkItemReducer = (state = initialState, action) => {

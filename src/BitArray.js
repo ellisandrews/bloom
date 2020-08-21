@@ -7,7 +7,7 @@ class BitArray extends Component {
   
   renderSquares = () => {
     
-    const { array, activeIndexes, checkedItem } = this.props
+    const { array, activeIndexes, checkItem } = this.props
     
     let currentX = 0
 
@@ -24,7 +24,7 @@ class BitArray extends Component {
         textClassName += ' text-toggled'
       }
 
-      if ( activeIndexes.includes(index) && checkedItem ) {
+      if ( activeIndexes.includes(index) && checkItem ) {
         rectClassName += ' square-checked'
         textClassName += ' text-checked'
       }
@@ -64,6 +64,32 @@ class BitArray extends Component {
     })
   }
 
+  renderAddItem = () => {
+    const { addItem } = this.props
+    
+    if ( addItem ) {
+      return (
+        <>
+          <text x="320" y="20" className="text">{addItem.value}</text>
+          {this.renderAddArrows()}
+        </>
+      )
+    }
+  }
+
+  renderCheckItem = () => {
+    const { checkItem } = this.props
+    
+    if ( checkItem ) {
+      return (
+        <>
+        <text x="320" y="480" className="text">{checkItem.value}</text>
+          {this.renderCheckArrows()}
+        </>
+      )
+    }
+  }
+  
   render() {
     return (
       <svg width="680" height="500">
@@ -72,12 +98,9 @@ class BitArray extends Component {
             <polygon points="0 0, 5 2.5, 0 5" />
           </marker>
         </defs>
-        {/* TODO: Set the below `x` value dynamically based on this.props.item.length */}
-        <text x="320" y="20" className="text">{this.props.addedItem}</text>
-        {this.props.addedItem ? this.renderAddArrows() : null}
+        {this.renderAddItem()}
         {this.renderSquares()}
-        {this.props.checkedItem ? this.renderCheckArrows() : null}
-        <text x="320" y="480" className="text">{this.props.checkedItem}</text>
+        {this.renderCheckItem()}
       </svg>
     )
   }
@@ -91,8 +114,8 @@ const mapStateToProps = state => {
   return {
     array,
     activeIndexes,
-    addedItem: addItem.value,
-    checkedItem: checkItem.value
+    addItem,
+    checkItem
   }
 }
 
