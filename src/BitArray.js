@@ -68,8 +68,9 @@ class BitArray extends Component {
         </defs>
         {/* TODO: Set the below `x` value dynamically based on this.props.item.length */}
         <text x="320" y="20">{this.props.addedItem}</text>
+        {this.props.addedItem ? this.renderAddArrows() : null}
         {this.renderSquares()}
-        {this.props.addedItem ? this.renderAddArrows() : this.renderCheckArrows()}
+        {this.props.checkedItem ? this.renderCheckArrows() : null}
         <text x="320" y="480">{this.props.checkedItem}</text>
       </svg>
     )
