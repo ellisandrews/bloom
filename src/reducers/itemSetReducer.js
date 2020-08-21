@@ -8,11 +8,11 @@ const itemSetReducer = (state = [], action) => {
     case ADD_SET_ITEM:
 
       // Don't allow adding of items already in the set
-      if (state.includes(action.item)) {
+      if (state.includes(action.item.value)) {
         return state
       }
 
-      return [...state, action.item]
+      return [...state, action.item.value]
 
     default:
       return state

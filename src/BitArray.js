@@ -7,7 +7,7 @@ class BitArray extends Component {
   
   renderSquares = () => {
     
-    const { array, activeIndexes, addedItem, checkedItem } = this.props
+    const { array, activeIndexes, checkedItem } = this.props
     
     let currentX = 0
 
@@ -35,7 +35,6 @@ class BitArray extends Component {
           <text x={currentX + 5.5} y="255.5" className={textClassName}>{bit ? 1 : 0}</text>
         </g>
       )
-      // return <rect key={index} width="20" height="20" x={`${currentX}`} y="240" className={className} />
     })
   }
 
@@ -65,8 +64,6 @@ class BitArray extends Component {
     })
   }
 
-  // TODO: Display 0s and 1s in bit array, so you can tell even when 'active' 
-
   render() {
     return (
       <svg width="680" height="500">
@@ -89,13 +86,13 @@ class BitArray extends Component {
 
 const mapStateToProps = state => {
   
-  const { array, activeIndexes, addedItem, checkedItem } = state.filter
+  const { filter: { array, activeIndexes }, addItem, checkItem } = state
   
   return {
     array,
     activeIndexes,
-    addedItem,
-    checkedItem
+    addedItem: addItem.value,
+    checkedItem: checkItem.value
   }
 }
 
