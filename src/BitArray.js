@@ -7,26 +7,35 @@ class BitArray extends Component {
   
   renderSquares = () => {
     
-    const { array, activeIndexes } = this.props
+    const { array, activeIndexes, addedItem, checkedItem } = this.props
     
     let currentX = 0
 
-    // Return appropriate bit array squares (activated, toggled, or blank)
+    // Return properly styled bit array squares
     return array.map((bit, index) => {
 
       currentX += 20
 
-      let className = 'bit-square'
-        
+      let rectClassName = 'square'
+      let textClassName = 'text'
+
       if ( bit ) {
-        className += ' toggled'
+        rectClassName += ' square-toggled'
+        textClassName += ' text-toggled'
       }
 
-      if ( activeIndexes.includes(index) ) {
-        className += ' active'
+      if ( activeIndexes.includes(index) && checkedItem ) {
+        rectClassName += ' square-checked'
+        textClassName += ' text-checked'
       }
 
-      return <rect key={index} width="20" height="20" x={`${currentX}`} y="240" className={className} />
+      return (
+        <g key={index}>
+          <rect width="20" height="20" x={currentX} y="240" className={rectClassName}/>
+          <text x={currentX + 5.5} y="255.5" className={textClassName}>{bit ? 1 : 0}</text>
+        </g>
+      )
+      // return <rect key={index} width="20" height="20" x={`${currentX}`} y="240" className={className} />
     })
   }
 
@@ -67,11 +76,11 @@ class BitArray extends Component {
           </marker>
         </defs>
         {/* TODO: Set the below `x` value dynamically based on this.props.item.length */}
-        <text x="320" y="20">{this.props.addedItem}</text>
+        <text x="320" y="20" className="text">{this.props.addedItem}</text>
         {this.props.addedItem ? this.renderAddArrows() : null}
         {this.renderSquares()}
         {this.props.checkedItem ? this.renderCheckArrows() : null}
-        <text x="320" y="480">{this.props.checkedItem}</text>
+        <text x="320" y="480" className="text">{this.props.checkedItem}</text>
       </svg>
     )
   }

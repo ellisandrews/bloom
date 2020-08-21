@@ -1,13 +1,26 @@
-.bit-square {
+.square {
     fill: white;
     stroke: black;
     stroke-width: 2;
 }
 
-.toggled {
+.square-toggled {
     fill: blue;
 }
 
-.active {
+.square-checked {
     fill: yellow;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: black;
+}
+
+.text-toggled {
+    fill: white;
+}
+
+.text-checked {
+    fill: black;
 }
