@@ -1,23 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 
-class SetItems extends Component {
-  
-  renderSetItems = () => {
-    return this.props.itemSet.map((item, index) => <li key={index}>{item}</li>)
-  }
-  
-  render() {
-    return (
-      <div id="set-items">
-        <h3>Items</h3>
-        <ul>
-          {this.renderSetItems()}
-        </ul>
-      </div>
-    )
-  }
+const SetItems = ({ itemSet }) => {
+  return (
+    <div id="set-items">
+      <p>Set Items: {'{ ' + itemSet.join(', ') + ' }'}</p>
+    </div>
+  )
 }
 
 
