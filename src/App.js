@@ -4,7 +4,7 @@ import AddedItem from './AddedItem'
 import AddForm from './AddForm'
 import CheckedItem from './CheckedItem'
 import CheckForm from './CheckForm'
-import SetItems from './SetItems'
+import FilterData from './FilterData'
 
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <h1>Bloom Filter Visualizer</h1>
       <AddForm/>
       <AddedItem/>
-      <SetItems/>
+      <FilterData/>
       <BitArray/>
       <CheckForm/>
       <CheckedItem/>

@@ -1,7 +1,7 @@
-import { ACTIVATE_BITS, TOGGLE_BITS } from '../actions/actionTypes'
+import { ACTIVATE_BITS, SET_ADDED_ITEM, TOGGLE_BITS } from '../actions/actionTypes'
 
 
-const resetArray = size => {
+const initializeBitArray = size => {
   const array = []
   for ( let i = 0; i < size; i++ ) {
     array.push(false)
@@ -10,10 +10,12 @@ const resetArray = size => {
 }
 
 
-// TODO: Somehow set this dynamically to a specified number of bits?
+// TODO: Dynamically set array size and number of hash functions
 const initialState = {
-  array: resetArray(32),
-  activeIndexes: []
+  array: initializeBitArray(32),
+  activeIndexes: [],
+  itemSet: [],
+  numHashFunctions: 2
 }
 
 
@@ -33,6 +35,17 @@ const filterReducer = (state = initialState, action) => {
       return {
         ...state,
         array: state.array.map((bit, index) => action.indexes.includes(index) ? true : bit)
+      }
+
+    case SET_ADDED_ITEM:
+      // Add an item to the itemSet. Don't allow adding of items already in the set.
+      if (state.itemSet.includes(action.item.value)) {
+        return state
+      }
+
+      return {
+        ...state,
+        itemSet: [...state.itemSet, action.item.value]
       }
 
     default:

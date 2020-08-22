@@ -72,7 +72,7 @@ class CheckForm extends Component {
 const mapStateToProps = state => {
   return {
     array: state.filter.array,
-    itemSet: state.itemSet
+    itemSet: state.filter.itemSet
   }
 }
 
