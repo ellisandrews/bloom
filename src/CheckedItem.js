@@ -9,14 +9,17 @@ const CheckedItem = ({ item }) => {
 
   let value = ''
   let bitIndexes = []
-  let possiblyInSet = null
-  let isInSet = null
+  let result = ''
   
   if ( item ) {
     value = item.value
     bitIndexes = item.bitIndexes
-    possiblyInSet = item.possiblyInSet
-    isInSet = item.isInSet
+    result = item.possiblyInSet ? 'Possibly in the set' : 'Definitely not in the set'
+
+    // Note whether the result is a false positive if applicable
+    if ( item.possiblyInSet && !item.isInSet ) {
+      result += ' - False positive!'
+    }
   }
 
   return (
@@ -24,8 +27,7 @@ const CheckedItem = ({ item }) => {
       <p>
         Checked Item: {value}<br/>
         Hash Output Indexes: {bitIndexes ? stringifyIndexes(bitIndexes) : null}<br/>
-        Possibly In Set: {possiblyInSet}<br/>
-        Is In Set: {isInSet}
+        Result: {result}<br/>
       </p>
     </div>
   )
