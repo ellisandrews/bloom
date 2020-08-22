@@ -4,9 +4,20 @@ import { stringifyIndexes } from './utils'
 
 
 const AddedItem = ({ item }) => {
+  
+  let itemValue = ''
+  let itemIndexes = []
+  if ( item ) {
+    itemValue = item.value
+    itemIndexes = item.bitIndexes
+  } 
+  
   return (
     <div id="added-item">
-      { item ? <p>Added Item: {item.value}<br/>Hashed Indexes: {stringifyIndexes(item.bitIndexes)}</p> : null }
+      <p>
+        Added Item: {itemValue}<br/>
+        Hash Output Indexes: {stringifyIndexes(itemIndexes)}
+      </p>
     </div>
   )
 }
@@ -14,7 +25,7 @@ const AddedItem = ({ item }) => {
 
 const mapStateToProps = state => {
   return {
-    item: state.addItem
+    item: state.addedItem
   }
 }
 

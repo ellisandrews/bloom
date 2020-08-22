@@ -1,16 +1,16 @@
-import { ADD_SET_ITEM, CHECK_SET_ITEM } from '../actionTypes'
+import { SET_ADDED_ITEM, SET_CHECKED_ITEM } from '../actionTypes'
 
 
-export const addSetItem = item => {  
+export const setAddedItem = item => {  
   return {
-    type: ADD_SET_ITEM,
+    type: SET_ADDED_ITEM,
     item
   }
 }
 
-export const checkSetItem = item => {  
+export const setCheckedItem = item => {  
   return {
-    type: CHECK_SET_ITEM,
+    type: SET_CHECKED_ITEM,
     item
   }
 }

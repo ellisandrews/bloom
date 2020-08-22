@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { activateBits, toggleBits } from './actions/actionCreators/filterArray'
-import { addSetItem } from './actions/actionCreators/itemSet'
+import { setAddedItem } from './actions/actionCreators/itemSet'
 import { createItem } from './utils'
 
 
@@ -18,13 +18,13 @@ class AddForm extends Component {
   handleSubmit = event => {
     event.preventDefault()
     
-    const { addSetItem, activateBits, toggleBits } = this.props
+    const { setAddedItem, activateBits, toggleBits } = this.props
 
     // Create the item to be added to the set (perform hashing)
     const item = createItem(this.state.value)
 
     // Add the item to the set
-    addSetItem(item)
+    setAddedItem(item)
     
     // Toggle the bits to `true` from hashing output
     toggleBits(item.bitIndexes)
@@ -52,5 +52,5 @@ class AddForm extends Component {
 
 export default connect(
   null,
-  { addSetItem, activateBits, toggleBits }
+  { setAddedItem, activateBits, toggleBits }
 )(AddForm)

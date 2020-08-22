@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { activateBits } from './actions/actionCreators/filterArray'
-import { checkSetItem } from './actions/actionCreators/itemSet'
+import { setCheckedItem } from './actions/actionCreators/itemSet'
 import { createItem } from './utils'
 
 
@@ -15,34 +15,42 @@ class CheckForm extends Component {
     this.setState({value: event.target.value})
   }
 
+  isItemPossiblyInSet = item => {
+    // Check an item against the Bloom filter for membership. Return true if item may be in the set, false if definitely not in the set.    
+    // As soon as we see one non-toggled bit we know it's definitely not in the set
+    for (let i = 0; i < item.bitIndexes.length; i++) {
+      if ( !this.props.array[item.bitIndexes[i]] ) {
+        return false
+      }
+    }
+    return true
+  }
+
+  isItemInSet = item => {
+    // Check the tracked item set for whether the item is indeed in the set or not
+    return this.props.itemSet.includes(item.value)
+  }
+
   handleSubmit = event => {
     event.preventDefault()
     
-    const { activateBits, array, checkSetItem } = this.props
+    const { activateBits, setCheckedItem } = this.props
 
-    // Create the item to be added to the set (perform hashing)
+    // Create the basic item to be added to the set (perform hashing)
     const item = createItem(this.state.value)
+    
+    // Check whether the item may be in the set using the Bloom filter
+    item.possiblyInSet = this.isItemPossiblyInSet(item)
 
-    // Set the checkedItem in state, and remove an addedItem if applicable
-    checkSetItem(item)
+    // Check whether the item IS in the set using the tracked set items
+    item.isInSet = this.isItemInSet(item)
+
+    // Set the checkedItem in state (and remove an addedItem if applicable)
+    setCheckedItem(item)
 
     // Toggle the bits to 'active' from hashing output
     activateBits(item.bitIndexes)
     
-    // Check whether the item is possibly in the set or definitely not in the set.
-    // Need to use a regular for loop in order to break (for efficiency -- only need to see one non-toggled bit)
-    let itemMayBeInSet = true
-    for (let i = 0; i < item.bitIndexes.length; i++) {
-      if ( !array[item.bitIndexes[i]] ) {
-        itemMayBeInSet = false
-        break
-      }
-    }
-
-    // TODO: Actually display this result on the page somewhere
-    // Check whether the hash output indexes are toggled or not
-    itemMayBeInSet ? console.log(`'${item.value}' may be in the set`) : console.log(`'${item.value}' is definitely not in the set`)
-
     // Reset the local form state to the empty string
     this.setState({value: ''})
   }
@@ -63,12 +71,13 @@ class CheckForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    array: state.filter.array
+    array: state.filter.array,
+    itemSet: state.itemSet
   }
 }
 
 
 export default connect(
   mapStateToProps,
-  { activateBits, checkSetItem }
+  { activateBits, setCheckedItem }
 )(CheckForm)

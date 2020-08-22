@@ -1,11 +1,11 @@
-import { ADD_SET_ITEM } from '../actions/actionTypes'
+import { SET_ADDED_ITEM } from '../actions/actionTypes'
 
 
 const itemSetReducer = (state = [], action) => {
   
   switch ( action.type ) {
     
-    case ADD_SET_ITEM:
+    case SET_ADDED_ITEM:
 
       // Don't allow adding of items already in the set
       if (state.includes(action.item.value)) {

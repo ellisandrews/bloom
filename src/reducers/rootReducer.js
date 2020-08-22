@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import addItemReducer from './addItemReducer'
-import checkItemReducer from './checkItemReducer'
+import addedItemReducer from './addedItemReducer'
+import checkedItemReducer from './checkedItemReducer'
 import filterReducer from './filterReducer'
 import itemSetReducer from './itemSetReducer'
 
@@ -8,8 +8,8 @@ import itemSetReducer from './itemSetReducer'
 const rootReducer = combineReducers({
   filter: filterReducer,
   itemSet: itemSetReducer,
-  addItem: addItemReducer,
-  checkItem: checkItemReducer
+  addedItem: addedItemReducer,
+  checkedItem: checkedItemReducer
 })
 
 

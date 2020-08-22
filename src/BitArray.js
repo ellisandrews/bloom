@@ -7,7 +7,7 @@ class BitArray extends Component {
   
   renderSquares = () => {
     
-    const { array, activeIndexes, checkItem } = this.props
+    const { array, activeIndexes, checkedItem } = this.props
     
     let currentX = 0
 
@@ -24,7 +24,7 @@ class BitArray extends Component {
         textClassName += ' text-toggled'
       }
 
-      if ( activeIndexes.includes(index) && checkItem ) {
+      if ( activeIndexes.includes(index) && checkedItem ) {
         rectClassName += ' square-checked'
         textClassName += ' text-checked'
       }
@@ -60,30 +60,30 @@ class BitArray extends Component {
 
   renderCheckArrows = () => {
     return this.props.activeIndexes.map((index, key) => {  
-      return <line key={key} x1="340" y1="470" x2={index*20 + this.getArrowXOffset(index)} y2="275" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+      return <line key={key} x1="340" y1="460" x2={index*20 + this.getArrowXOffset(index)} y2="275" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
     })
   }
 
-  renderAddItem = () => {
-    const { addItem } = this.props
+  renderaddedItem = () => {
+    const { addedItem } = this.props
     
-    if ( addItem ) {
+    if ( addedItem ) {
       return (
         <>
-          <text x="320" y="20" className="text">{addItem.value}</text>
+          <text x="320" y="20" className="text">{addedItem.value}</text>
           {this.renderAddArrows()}
         </>
       )
     }
   }
 
-  renderCheckItem = () => {
-    const { checkItem } = this.props
+  rendercheckedItem = () => {
+    const { checkedItem } = this.props
     
-    if ( checkItem ) {
+    if ( checkedItem ) {
       return (
         <>
-        <text x="320" y="480" className="text">{checkItem.value}</text>
+        <text x="320" y="480" className="text">{checkedItem.value}</text>
           {this.renderCheckArrows()}
         </>
       )
@@ -98,9 +98,9 @@ class BitArray extends Component {
             <polygon points="0 0, 5 2.5, 0 5" />
           </marker>
         </defs>
-        {this.renderAddItem()}
+        {this.renderaddedItem()}
         {this.renderSquares()}
-        {this.renderCheckItem()}
+        {this.rendercheckedItem()}
       </svg>
     )
   }
@@ -109,13 +109,13 @@ class BitArray extends Component {
 
 const mapStateToProps = state => {
   
-  const { filter: { array, activeIndexes }, addItem, checkItem } = state
+  const { filter: { array, activeIndexes }, addedItem, checkedItem } = state
   
   return {
     array,
     activeIndexes,
-    addItem,
-    checkItem
+    addedItem,
+    checkedItem
   }
 }
 

@@ -5,6 +5,10 @@ export const TOGGLE_BITS = 'TOGGLE_BITS'
 
 
 // Item set action types
-export const ADD_SET_ITEM = 'ADD_SET_ITEM'
+export const SET_ADDED_ITEM = 'SET_ADDED_ITEM'
 
-export const CHECK_SET_ITEM = 'CHECK_SET_ITEM'
+export const SET_CHECKED_ITEM = 'SET_CHECKED_ITEM'
+
+
+// Results action types
+export const UPDATE_RESULTS = 'UPDATE_RESULTS'
