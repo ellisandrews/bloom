@@ -1,23 +1,18 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
+import AddContainer from './AddContainer'
 import BitArray from './BitArray'
-import AddedItem from './AddedItem'
-import AddForm from './AddForm'
-import CheckedItem from './CheckedItem'
-import CheckForm from './CheckForm'
-import FilterData from './FilterData'
+import CheckContainer from './CheckContainer'
 
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Bloom Filter Visualizer</h1>
-      <AddForm/>
-      <AddedItem/>
-      <FilterData/>
+    <Container id="App" className="bg-white my-2">
+      <h1 className="py-4 text-center">Bloom Filter Visualizer</h1>
+      <AddContainer/>
       <BitArray/>
-      <CheckForm/>
-      <CheckedItem/>
-    </div>
+      <CheckContainer/>
+    </Container>
   )
 }
 
