@@ -92,16 +92,18 @@ class BitArray extends Component {
   
   render() {
     return (
-      <svg width="680" height="500">
-        <defs>
-          <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
-            <polygon points="0 0, 5 2.5, 0 5" />
-          </marker>
-        </defs>
-        {this.renderaddedItem()}
-        {this.renderSquares()}
-        {this.rendercheckedItem()}
-      </svg>
+      <div className="text-center">
+        <svg width="680" height="500">
+          <defs>
+            <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
+              <polygon points="0 0, 5 2.5, 0 5" />
+            </marker>
+          </defs>
+          {this.renderaddedItem()}
+          {this.renderSquares()}
+          {this.rendercheckedItem()}
+        </svg>
+      </div>
     )
   }
 }
