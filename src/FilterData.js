@@ -19,10 +19,10 @@ class FilterData extends Component {
     const falsePostivePct = (falsePositiveRate * 100).toFixed(2)
 
     return (
-      <div id="filter-data">
+      <div id="filter-data" className="text-center">
         <p>
-          Set Items: {'{ ' + itemSet.join(', ') + ' }'}<br/>
-          False Positive Rate: {falsePostivePct}%
+          False Positive Rate: {falsePostivePct}%<br/>
+          Set Items: {'{ ' + itemSet.join(', ') + ' }'}
         </p>
       </div>
     )

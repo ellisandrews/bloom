@@ -1,18 +1,31 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
-import AddedItem from './AddedItem'
+import { connect } from 'react-redux'
+import { Col, Container, Row } from 'react-bootstrap'
 import AddForm from './AddForm'
+import HashValues from './HashValues'
 
 
-const AddContainer = () => {
+const AddContainer = ({ item }) => {
+  
   return (
-    <Container id="AddContainer" className="border-black rounded my-2">
-      <h4 className="py-3">Populate Bloom Filter</h4>
-      <AddForm/>
-      <AddedItem/>
+    <Container id="AddContainer" className="my-2 text-center">
+      <Row className="justify-content-md-center">
+        <Col md="auto" className="border-black rounded py-2">
+          <h4>Add Items</h4>
+          <AddForm/>
+          <HashValues values={item ? item.bitIndexes : null}/>
+        </Col>
+      </Row>
     </Container>
   )
 }
 
 
-export default AddContainer
+const mapStateToProps = state => {
+  return {
+    item: state.addedItem
+  }
+}
+
+
+export default connect(mapStateToProps)(AddContainer)

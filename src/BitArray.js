@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import './BitArray.css'
 
@@ -70,7 +71,7 @@ class BitArray extends Component {
     if ( addedItem ) {
       return (
         <>
-          <text x="320" y="20" className="text">{addedItem.value}</text>
+          <text x="340" y="20" className="text" textAnchor="middle">"{addedItem.value}"</text>
           {this.renderAddArrows()}
         </>
       )
@@ -83,7 +84,7 @@ class BitArray extends Component {
     if ( checkedItem ) {
       return (
         <>
-        <text x="320" y="380" className="text">{checkedItem.value}</text>
+        <text x="340" y="380" className="text" textAnchor="middle">"{checkedItem.value}"</text>
           {this.renderCheckArrows()}
         </>
       )
