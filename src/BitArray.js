@@ -31,8 +31,8 @@ class BitArray extends Component {
 
       return (
         <g key={index}>
-          <rect width="20" height="20" x={currentX} y="240" className={rectClassName}/>
-          <text x={currentX + 5.5} y="255.5" className={textClassName}>{bit ? 1 : 0}</text>
+          <rect width="20" height="20" x={currentX} y="190" className={rectClassName}/>
+          <text x={currentX + 5.5} y="205.5" className={textClassName}>{bit ? 1 : 0}</text>
         </g>
       )
     })
@@ -54,13 +54,13 @@ class BitArray extends Component {
 
   renderAddArrows = () => {
     return this.props.activeIndexes.map((index, key) => {  
-      return <line key={key} x1="340" y1="30" x2={index*20 + this.getArrowXOffset(index)} y2="225" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+      return <line key={key} x1="340" y1="30" x2={index*20 + this.getArrowXOffset(index)} y2="175" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
     })
   }
 
   renderCheckArrows = () => {
     return this.props.activeIndexes.map((index, key) => {  
-      return <line key={key} x1="340" y1="460" x2={index*20 + this.getArrowXOffset(index)} y2="275" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+      return <line key={key} x1="340" y1="360" x2={index*20 + this.getArrowXOffset(index)} y2="225" stroke="black" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
     })
   }
 
@@ -83,7 +83,7 @@ class BitArray extends Component {
     if ( checkedItem ) {
       return (
         <>
-        <text x="320" y="480" className="text">{checkedItem.value}</text>
+        <text x="320" y="380" className="text">{checkedItem.value}</text>
           {this.renderCheckArrows()}
         </>
       )
@@ -93,7 +93,7 @@ class BitArray extends Component {
   render() {
     return (
       <div className="text-center">
-        <svg width="680" height="500">
+        <svg width="680" height="400">
           <defs>
             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
               <polygon points="0 0, 5 2.5, 0 5" />

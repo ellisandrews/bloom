@@ -41,7 +41,7 @@ class AddForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Add Item:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter a value"/>
         </label>
         <input type="submit" value="Submit" />
       </form>

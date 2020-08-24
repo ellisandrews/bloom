@@ -5,11 +5,11 @@
 }
 
 .square-toggled {
-    fill: blue;
+    fill: #06D6A0;
 }
 
 .square-checked {
-    fill: yellow;
+    fill: #FFD166;
 }
 
 .text {
@@ -18,7 +18,7 @@
 }
 
 .text-toggled {
-    fill: white;
+    fill: black;
 }
 
 .text-checked {
