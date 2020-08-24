@@ -27,13 +27,13 @@ class HashValues extends Component {
 
   render() {
     return (
-      <Table bordered size="sm" className="text-center">
-        <thead>
+      <Table size="sm" className="text-center">
+        <thead className="bg-grey">
           <tr>
             {this.renderHeaderRow()}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white">
           <tr>
             { this.props.values ? this.renderValues() : this.renderEmptyCells() }
           </tr>

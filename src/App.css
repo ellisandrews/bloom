@@ -1,3 +1,31 @@
 .border-black {
     border: 2px solid black;
 }
+
+.bg-green {
+    background: #06D6A0;
+}
+
+.bg-yellow {
+    background: #FFD166;
+}
+
+.bg-white {
+    background: white;
+}
+
+.bg-grey {
+    background: lightgray;
+}
+
+.text-green {
+    color: #06D6A0;
+}
+
+.text-pink {
+    color: #EF476F;
+}
+
+.text-blue {
+    color: #26547C;
+}

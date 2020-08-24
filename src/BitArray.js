@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import './BitArray.css'
 
@@ -93,7 +92,7 @@ class BitArray extends Component {
   
   render() {
     return (
-      <div className="text-center">
+      <div id="BitArray" className="text-center">
         <svg width="680" height="400">
           <defs>
             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">

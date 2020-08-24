@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Col, Container, Row } from 'react-bootstrap'
 import CheckForm from './CheckForm'
 import HashValues from './HashValues'
-import { render } from '@testing-library/react'
 
 
 class CheckContainer extends Component {
@@ -22,17 +21,20 @@ class CheckContainer extends Component {
       return null
     }
 
-    let result
+    let isFalsePositive
     let description
+    let className
     if ( item.possiblyInSet ) {
-      description = 'Possibly in the set'
-      result = item.isInSet ? 'True Positive' : 'False Positive'
+      description = 'Possibly'
+      className = 'text-blue'
+      isFalsePositive = item.isInSet ? false : true
     } else {
-      result = 'True Negative'
-      description = 'Definitely not in the set'
+      isFalsePositive = false
+      description = 'Definitely not'
+      className = 'text-pink'
     }
 
-    return <p>{description} ({result})</p>
+    return <p className={className}><b>{description}</b> in the set{isFalsePositive ? ' - False Positive!' : null}</p>
   }
 
   render() {
@@ -40,7 +42,7 @@ class CheckContainer extends Component {
     return (
       <Container id="CheckContainer" className="my-2 text-center">
         <Row className="justify-content-md-center">
-          <Col md="auto" className="border-black rounded py-2">
+          <Col md="auto" className="border-black rounded py-2 bg-yellow">
             <h4>Check Items</h4>
             <CheckForm/>
             <HashValues values={item ? item.bitIndexes : null}/>

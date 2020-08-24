@@ -20,10 +20,7 @@ class FilterData extends Component {
 
     return (
       <div id="filter-data" className="text-center">
-        <p>
-          False Positive Rate: {falsePostivePct}%<br/>
-          Set Items: {'{ ' + itemSet.join(', ') + ' }'}
-        </p>
+        <p>False Positive Rate: {falsePostivePct}%</p>
       </div>
     )
   }

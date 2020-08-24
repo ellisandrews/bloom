@@ -8,9 +8,9 @@ import HashValues from './HashValues'
 const AddContainer = ({ item }) => {
   
   return (
-    <Container id="AddContainer" className="my-2 text-center">
+    <Container id="add-container" className="my-2 text-center">
       <Row className="justify-content-md-center">
-        <Col md="auto" className="border-black rounded py-2">
+        <Col md="auto" className="border-black rounded py-2 bg-green">
           <h4>Add Items</h4>
           <AddForm/>
           <HashValues values={item ? item.bitIndexes : null}/>
