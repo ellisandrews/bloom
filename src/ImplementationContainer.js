@@ -22,7 +22,7 @@ const ImplementationContainer = () => {
       </p>
       <div id="add-example" className="text-center">
         <p>
-          Add Item: "Foo"
+        <b className="text-green">Add Item:</b> "Foo"
         </p>
         <p>
           HashFunction1("Foo") = 1
@@ -42,7 +42,7 @@ const ImplementationContainer = () => {
       <Row id="check-example" className="text-center px-5">
         <Col>
           <p>
-            Check Item: "Foo"
+          <b className="text-yellow">Check Item:</b> "Foo"
           </p>
           <p>
             HashFunction1("Foo") = 1
@@ -56,7 +56,7 @@ const ImplementationContainer = () => {
         </Col>
         <Col>
           <p>
-            Check Item: "Bar"
+            <b className="text-yellow">Check Item:</b> "Bar"
           </p>
           <p>
             HashFunction1("Bar") = 4

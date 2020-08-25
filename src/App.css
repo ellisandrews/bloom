@@ -2,6 +2,10 @@
     border: 2px solid black;
 }
 
+.bg-blue {
+    background: #26547C;
+}
+
 .bg-green {
     background: #06D6A0;
 }
@@ -32,4 +36,35 @@
 
 .text-yellow {
     color: #FFD166;
+}
+
+h5 {
+    color: #26547C;
+}
+
+.square {
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.square-toggled {
+    fill: #06D6A0;
+}
+
+.square-checked {
+    fill: #FFD166;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: black;
+}
+
+.text-toggled {
+    fill: black;
+}
+
+.text-checked {
+    fill: black;
 }
