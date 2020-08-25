@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 
 const IntroContainer = () => {
   return (
-    <Container id="IntroContainer" className="border-black rounded my-2">
+    <Container id="intro-container" className="border-black rounded my-2">
       <h3 className="py-3">Introduction</h3>
       <p>Welcome to the Bloom Filter Visualizer - a simple, interactive tool explaining how Bloom filters work.</p>
       <p>

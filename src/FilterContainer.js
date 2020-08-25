@@ -10,7 +10,7 @@ import SetItems from './SetItems'
 
 const FilterContainer = () => {
   return (
-    <Container id="FilterContainer" className="border-black rounded my-2">
+    <Container id="filter-container" className="border-black rounded my-2">
       <InteractiveInfo/>
       <AddContainer/>
       <SetItems/>

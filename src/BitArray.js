@@ -92,7 +92,7 @@ class BitArray extends Component {
   
   render() {
     return (
-      <div id="BitArray" className="text-center">
+      <div id="bit-array" className="text-center">
         <svg width="680" height="400">
           <defs>
             <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
