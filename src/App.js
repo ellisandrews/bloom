@@ -8,7 +8,7 @@ import './App.css'
 const App = () => {
   return (
     <Container id="App" className="bg-white my-2 rounded">
-      <h1 className="py-4 text-center">Bloom Filter Visualizer</h1>
+      <h1 className="py-4 text-center">Bloom Filters</h1>
       <IntroContainer/>
       <FilterContainer/>
     </Container>

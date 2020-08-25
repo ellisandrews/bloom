@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 const IntroContainer = () => {
   return (
     <Container id="IntroContainer" className="border-black rounded my-2">
-      <h4 className="py-3">Introduction</h4>
+      <h3 className="py-3">Introduction</h3>
       <p>Welcome to the Bloom Filter Visualizer - a simple, interactive tool explaining how Bloom filters work.</p>
       <p>
         If you are not already familiar, a Bloom filter is a probabilistic data structure that is used to test 
