@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bloom/static/css/main.596f6191.chunk.css",
+    "main.js": "/bloom/static/js/main.3e6bdd8b.chunk.js",
+    "main.js.map": "/bloom/static/js/main.3e6bdd8b.chunk.js.map",
+    "runtime-main.js": "/bloom/static/js/runtime-main.11f17837.js",
+    "runtime-main.js.map": "/bloom/static/js/runtime-main.11f17837.js.map",
+    "static/css/2.11829350.chunk.css": "/bloom/static/css/2.11829350.chunk.css",
+    "static/js/2.698d00a5.chunk.js": "/bloom/static/js/2.698d00a5.chunk.js",
+    "static/js/2.698d00a5.chunk.js.map": "/bloom/static/js/2.698d00a5.chunk.js.map",
+    "index.html": "/bloom/index.html",
+    "precache-manifest.770504ee36e04ddd712b4b4966b1264e.js": "/bloom/precache-manifest.770504ee36e04ddd712b4b4966b1264e.js",
+    "service-worker.js": "/bloom/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/bloom/static/css/2.11829350.chunk.css.map",
+    "static/css/main.596f6191.chunk.css.map": "/bloom/static/css/main.596f6191.chunk.css.map",
+    "static/js/2.698d00a5.chunk.js.LICENSE.txt": "/bloom/static/js/2.698d00a5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11f17837.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.698d00a5.chunk.js",
+    "static/css/main.596f6191.chunk.css",
+    "static/js/main.3e6bdd8b.chunk.js"
+  ]
+}
