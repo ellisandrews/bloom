@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Container id="app" className="bg-white my-2 rounded py-2">
       <h1 className="text-center py-2">Bloom Filters</h1>
-      <p className="text-center">A simple resource for learning about and playing with Bloom filters.</p>
+      <p className="text-center">A simple, interactive, and easy-to-understand guide for demystifying Bloom filters.</p>
       <IntroContainer/>
       <ImplementationContainer/>
       <VisualizationContainer/>
