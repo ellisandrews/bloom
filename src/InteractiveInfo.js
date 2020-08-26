@@ -4,7 +4,6 @@ import React from 'react'
 const InteractiveInfo = () => {
   return (
     <div id="interactive-info">
-      <h3 className="py-3">Visualization</h3>
       <p>
         Below is a simple, interactive visualization of a Bloom filter.
         The underlying bit array data structure has already been initialized with all bits set to 0.
