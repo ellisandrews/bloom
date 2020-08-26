@@ -1,14 +1,26 @@
-import React from 'react'
-import { Accordion, Card } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Accordion, Card, Col, Row } from 'react-bootstrap'
 import { SocialIcon } from 'react-social-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 const AboutContainer = () => {
+  
+  const [collapsed, toggleCollapsed] = useState(false)
+  
   return (
     <Accordion id="about-container" defaultActiveKey="0" className="my-2">
       <Card>
-        <Accordion.Toggle as={Card.Header} eventKey="0">
-          <h4>About</h4>
+        <Accordion.Toggle as={Card.Header} eventKey="0" onClick={() => toggleCollapsed(!collapsed)}>
+          <Row className="align-items-center">
+            <Col>
+              <h4 className="m-0">About</h4>
+            </Col>
+            <Col className="text-right">
+              <FontAwesomeIcon icon={ collapsed ? faChevronRight : faChevronDown }/>  
+            </Col>
+          </Row>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="0">
           <Card.Body>
